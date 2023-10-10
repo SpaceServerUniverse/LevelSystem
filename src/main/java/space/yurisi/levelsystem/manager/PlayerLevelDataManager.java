@@ -61,4 +61,11 @@ public class PlayerLevelDataManager {
     public void unregister(Player player) {
         this.data.remove(player.getUniqueId());
     }
+
+    public void saveAll(){
+        this.data.forEach((key, value) -> {
+            main.getConnector().save(value);
+        });
+
+    }
 }

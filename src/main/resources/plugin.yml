@@ -2,3 +2,15 @@ name: LevelSystem
 version: '${version}'
 main: space.yurisi.levelsystem.LevelSystem
 api-version: '1.20'
+depend:
+  - UniverseCore
+commands:
+  addexp:
+    description: オンラインのプレイヤーに経験値を与えます
+    permission: space.yurisi.levelsystem.addexp
+    usage: /addexp [playername] [amount]
+
+permissions:
+  space.yurisi.levelsystem.addexp:
+    description: op command
+    default: op

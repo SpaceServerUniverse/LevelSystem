@@ -54,6 +54,10 @@ public class LevelSystemAPI {
         return LevelModes.fromInteger(level_mode);
     }
 
+    public void saveAll(){
+        manager.saveAll();
+    }
+
     public static LevelSystemAPI getInstance() {
         return api;
     }

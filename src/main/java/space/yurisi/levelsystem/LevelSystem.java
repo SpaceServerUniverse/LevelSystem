@@ -1,10 +1,7 @@
 package space.yurisi.levelsystem;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import space.yurisi.levelsystem.manager.EventManager;
-import space.yurisi.levelsystem.manager.PlayerBossBarManager;
-import space.yurisi.levelsystem.manager.PlayerLevelDataManager;
-import space.yurisi.levelsystem.manager.TaskManager;
+import space.yurisi.levelsystem.manager.*;
 import space.yurisi.levelsystem.utils.connector.UniverseCoreAPIConnector;
 
 public final class LevelSystem extends JavaPlugin {
@@ -25,6 +22,7 @@ public final class LevelSystem extends JavaPlugin {
         taskManager = new TaskManager(this);
         new LevelSystemAPI(getPlayerLevelDataManager(), getConnector());
         new EventManager(this);
+        new CommandManager(this);
     }
 
     public UniverseCoreAPIConnector getConnector() {
@@ -45,6 +43,6 @@ public final class LevelSystem extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        LevelSystemAPI.getInstance().saveAll();
     }
 }

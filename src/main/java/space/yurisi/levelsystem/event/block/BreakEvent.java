@@ -10,6 +10,7 @@ import space.yurisi.levelsystem.LevelSystemAPI;
 import space.yurisi.levelsystem.exception.PlayerDataNotFoundException;
 
 public class BreakEvent implements Listener {
+
     @EventHandler(priority = EventPriority.MONITOR)
     public void onBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
