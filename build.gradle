@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     compileOnly "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
-    implementation(fileTree(dir: 'lib', include: ['*.jar']))
+    compileOnly "space.yurisi:universecore:1.5"
 }
 
 def targetJavaVersion = 17
@@ -59,6 +59,7 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
+            artifactId = 'levelsystem'
             from(components.java)
         }
     }

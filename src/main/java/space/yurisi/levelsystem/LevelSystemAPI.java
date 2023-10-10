@@ -23,6 +23,12 @@ public class LevelSystemAPI {
         api = this;
     }
 
+    /**
+     * オンラインのプレイヤーに経験値を与えます。
+     * @param player
+     * @param exp
+     * @throws PlayerDataNotFoundException
+     */
     public void addExp(Player player, int exp) throws PlayerDataNotFoundException {
         if (!this.manager.exists(player)) {
             throw new PlayerDataNotFoundException("プレイヤーデータが見つかりません。プレイヤーがオンラインではない可能性があります。");
@@ -30,6 +36,13 @@ public class LevelSystemAPI {
         this.manager.get(player).addExp(exp);
     }
 
+    /**
+     * オンラインのプレイヤーのレベルを取得します
+     * (オンラインのプレイヤーはメモリに保存されているため)
+     * @param player
+     * @return Level
+     * @throws PlayerDataNotFoundException
+     */
     public int getLevel(Player player) throws PlayerDataNotFoundException {
         if (!this.manager.exists(player)) {
             throw new PlayerDataNotFoundException("プレイヤーデータが見つかりません。プレイヤーがオンラインではない可能性があります。");
@@ -37,11 +50,26 @@ public class LevelSystemAPI {
         return this.manager.get(player).getLevel();
     }
 
+    /**
+     * プレイヤー名からデータベースに保存されているレベルを取得します
+     *
+     * @param name
+     * @return Level
+     * @throws UserNotFoundException
+     * @throws PlayerNormalLevelNotFoundException
+     */
     public int getLevelFromPlayerName(String name) throws UserNotFoundException, PlayerNormalLevelNotFoundException {
         //TODO LevelMode
         return connector.getNormalLevelFromPlayerName(name).getLevel();
     }
 
+    /**
+     * オンラインのプレイヤーのレベルモードを取得します
+     * (オンラインのプレイヤーはメモリに保存されているため)
+     * @param player
+     * @return LevelMode
+     * @throws PlayerDataNotFoundException
+     */
     public LevelModes getLevelMode(Player player) throws PlayerDataNotFoundException {
         if (this.manager.exists(player)) {
             throw new PlayerDataNotFoundException("プレイヤーデータが見つかりません。プレイヤーがオンラインではない可能性があります。");
@@ -49,15 +77,29 @@ public class LevelSystemAPI {
         return this.manager.get(player).getLevelMode();
     }
 
+    /**
+     * プレイヤー名からデータベースに保存されているレベルモードを取得します
+     * @param name
+     * @return LevelMode
+     * @throws UserNotFoundException
+     * @throws PlayerLevelNotFoundException
+     */
     public LevelModes getLevelModeFromPlayerName(String name) throws UserNotFoundException, PlayerLevelNotFoundException {
         int level_mode = connector.getLevelFromPlayerName(name).getLevel_mode();
         return LevelModes.fromInteger(level_mode);
     }
 
+    /**
+     * 現在のメモリのデータをデータベースに保存します
+     */
     public void saveAll(){
         manager.saveAll();
     }
 
+    /**
+     * インスタンスを取得します
+     * @return LevelSystemAPI
+     */
     public static LevelSystemAPI getInstance() {
         return api;
     }
