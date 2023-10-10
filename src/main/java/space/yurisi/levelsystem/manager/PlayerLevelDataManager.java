@@ -29,6 +29,8 @@ public class PlayerLevelDataManager {
             PlayerLevel playerLevel = main.getConnector().getPlayerLevel(player);
             LevelModes levelMode = LevelModes.fromInteger(playerLevel.getLevel_mode());
 
+            //TODO Levelmodes
+
             if (!levelMode.equals(LevelModes.NORMAL)) {
                 throw new UnknownLevelModeException("レベルモードが存在しません");
             }
