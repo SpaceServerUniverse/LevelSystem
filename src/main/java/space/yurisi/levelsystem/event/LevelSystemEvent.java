@@ -1,4 +1,4 @@
-package space.yurisi.levelsystem.plugin_event;
+package space.yurisi.levelsystem.event;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;

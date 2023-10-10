@@ -1,4 +1,4 @@
-package space.yurisi.levelsystem.event.player;
+package space.yurisi.levelsystem.listener.player;
 
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;

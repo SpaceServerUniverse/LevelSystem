@@ -1,11 +1,11 @@
-package space.yurisi.levelsystem.event.plugin_event.level;
+package space.yurisi.levelsystem.listener.plugin_event.level;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import space.yurisi.levelsystem.plugin_event.level.LevelUpEvent;
+import space.yurisi.levelsystem.event.level.LevelUpEvent;
 
 public final class UpEvent implements Listener {
 

@@ -2,7 +2,7 @@ package space.yurisi.levelsystem.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import space.yurisi.levelsystem.plugin_event.level.LevelUpEvent;
+import space.yurisi.levelsystem.event.level.LevelUpEvent;
 import space.yurisi.levelsystem.utils.levelmode.ILevelMode;
 import space.yurisi.levelsystem.utils.levelmode.LevelModes;
 import space.yurisi.levelsystem.utils.levelmode.NormalLevelMode;
@@ -134,12 +134,17 @@ public class PlayerLevelData {
     }
 
     public void addExp(int exp) {
+        if(DayOfWeek.getInstance().isHoliday()){
+            double temp = exp * 1.5;
+            exp = (int) Math.floor(temp);
+        }
+
         for (int i = 1; i <= exp; i++) {
             exp_for_next_level++;
             total_exp++;
 
             if (level >= getLevelModeInterface().getMaxLevel()) {
-                break;
+                continue;
             }
 
             if (exp_for_next_level >= getLevelModeInterface().getLevelTable(level)) {

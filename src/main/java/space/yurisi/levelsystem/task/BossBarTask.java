@@ -2,6 +2,7 @@ package space.yurisi.levelsystem.task;
 
 import org.bukkit.boss.BossBar;
 import org.bukkit.scheduler.BukkitRunnable;
+import space.yurisi.levelsystem.utils.DayOfWeek;
 import space.yurisi.levelsystem.utils.PlayerLevelData;
 
 public class BossBarTask extends BukkitRunnable {
@@ -17,7 +18,12 @@ public class BossBarTask extends BukkitRunnable {
 
     @Override
     public void run() {
-        this.bossBar.setTitle("レベル:" + levelData.getLevel() + " " + levelData.getLevelModeAllExp() + "/" + levelData.getNextLevelExp());
+        String level = levelData.getLevel() == levelData.getLevelModeInterface().getMaxLevel() ?
+                       "§e☆MAX☆" :
+                       String.valueOf(levelData.getLevel());
+
+        String bonus_message = DayOfWeek.getInstance().isHoliday() ? "§a休日ボーナス 1.5倍！" : "";
+        this.bossBar.setTitle("レベル:" + level + " " + levelData.getLevelModeAllExp() + "/" + levelData.getNextLevelExp() + " " + bonus_message);
         this.bossBar.setProgress(levelData.getPercentage());
     }
 }

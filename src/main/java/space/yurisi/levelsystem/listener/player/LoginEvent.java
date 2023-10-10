@@ -1,4 +1,4 @@
-package space.yurisi.levelsystem.event.player;
+package space.yurisi.levelsystem.listener.player;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;

@@ -1,7 +1,7 @@
-package space.yurisi.levelsystem.plugin_event.level;
+package space.yurisi.levelsystem.event.level;
 
 import org.bukkit.entity.Player;
-import space.yurisi.levelsystem.plugin_event.LevelSystemEvent;
+import space.yurisi.levelsystem.event.LevelSystemEvent;
 import space.yurisi.levelsystem.utils.levelmode.LevelModes;
 
 public class LevelUpEvent extends LevelSystemEvent {

@@ -1,4 +1,4 @@
-package space.yurisi.levelsystem.event.inventory;
+package space.yurisi.levelsystem.listener.inventory;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

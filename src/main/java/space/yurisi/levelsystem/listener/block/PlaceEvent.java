@@ -1,4 +1,4 @@
-package space.yurisi.levelsystem.event.block;
+package space.yurisi.levelsystem.listener.block;
 
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
