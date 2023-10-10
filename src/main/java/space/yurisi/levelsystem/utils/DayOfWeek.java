@@ -4,12 +4,9 @@ import java.util.Calendar;
 
 public class DayOfWeek {
 
-    private boolean holiday;
-
     private static DayOfWeek instance;
 
     public DayOfWeek(){
-        holiday = isHoliday();
         instance = this;
     }
 
@@ -19,7 +16,7 @@ public class DayOfWeek {
     }
 
    public void checkHoliday(){
-        this.holiday = isHoliday();
+        isHoliday();
    }
 
     public static DayOfWeek getInstance(){
