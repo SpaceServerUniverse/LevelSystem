@@ -30,11 +30,13 @@ public class BreakEvent implements Listener {
 
         try {
             switch (event.getBlock().getType()){
-                case COAL_ORE ->  api.addExp(player, 10);
-                case LAPIS_ORE, REDSTONE_ORE -> api.addExp(player, 20);
-                case DIAMOND_ORE -> api.addExp(player, 100);
-                case EMERALD_ORE ->  api.addExp(player, 200);
-                default -> api.addExp(player, 3);
+                case STONE, DEEPSLATE -> api.addExp(player, 3);
+                case COAL_ORE, DEEPSLATE_COAL_ORE ->  api.addExp(player, 10);
+                case LAPIS_ORE,DEEPSLATE_LAPIS_ORE, REDSTONE_ORE, DEEPSLATE_REDSTONE_ORE -> api.addExp(player, 20);
+                case DEEPSLATE_DIAMOND_ORE ->api.addExp(player, 100);
+                case EMERALD_ORE, DEEPSLATE_EMERALD_ORE ->  api.addExp(player, 200);
+                case DIAMOND_ORE -> api.addExp(player, 300);
+                default -> api.addExp(player, 1);
             }
         } catch (PlayerDataNotFoundException ignored) {
         }

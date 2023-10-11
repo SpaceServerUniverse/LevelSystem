@@ -18,7 +18,7 @@ public class PlaceEvent implements Listener {
         }
 
         try {
-            LevelSystemAPI.getInstance().addExp(player, 3);
+            LevelSystemAPI.getInstance().addExp(player, 1);
         } catch (PlayerDataNotFoundException exception) {
         }
     }

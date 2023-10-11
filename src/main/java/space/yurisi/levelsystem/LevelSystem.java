@@ -26,7 +26,7 @@ public final class LevelSystem extends JavaPlugin {
         new LevelSystemAPI(getPlayerLevelDataManager(), getConnector());
         new EventManager(this);
         new CommandManager(this);
-        new SaveDataTask(getPlayerLevelDataManager()).runTaskTimer(this, 0L, 12000L);
+        new SaveDataTask(getPlayerLevelDataManager()).runTaskTimer(this, 0L, 6000L);
     }
 
     public UniverseCoreAPIConnector getConnector() {

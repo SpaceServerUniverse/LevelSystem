@@ -16,7 +16,7 @@ public class FishEvent implements Listener {
 
         if(event.getState() == PlayerFishEvent.State.CAUGHT_FISH){
             try {
-                api.addExp(player, 30);
+                api.addExp(player, 70);
             }catch (PlayerDataNotFoundException ignored){
             }
         }

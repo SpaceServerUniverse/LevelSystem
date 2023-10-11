@@ -21,7 +21,7 @@ public class FurnaceExtractEvent implements Listener {
                 case COPPER_INGOT -> api.addExp(player, 10 * amount);
                 case IRON_INGOT -> api.addExp(player, 5 * amount);
                 case GOLD_INGOT -> api.addExp(player, 8 * amount);
-                case NETHERITE_SCRAP -> api.addExp(player, 15 * amount);
+                case NETHERITE_SCRAP -> api.addExp(player, 50 * amount);
             }
         } catch (PlayerDataNotFoundException ignored) {
         }

@@ -16,6 +16,8 @@ public class SaveDataTask extends BukkitRunnable {
 
     private PlayerLevelDataManager manager;
 
+    private int tick = 1;
+
     public SaveDataTask(PlayerLevelDataManager manager) {
         this.manager = manager;
     }
@@ -23,15 +25,18 @@ public class SaveDataTask extends BukkitRunnable {
     @Override
     public void run() {
         manager.saveAll();
-        Collection<? extends Player> online = Bukkit.getServer().getOnlinePlayers();
-        for (Player player: online){
-            try {
-                LevelSystemAPI.getInstance().addExp(player, 1000);
-                player.sendMessage("[管理AI] 遊んでくれてありがとうございます！1000EXPプレゼントです！");
-            } catch (PlayerDataNotFoundException ignored) {
-            }
-        }
-
         DayOfWeek.getInstance().checkHoliday();
+        tick++;
+        if (tick == 4) {
+            Collection<? extends Player> online = Bukkit.getServer().getOnlinePlayers();
+            for (Player player : online) {
+                try {
+                    LevelSystemAPI.getInstance().addExp(player, 1000);
+                    player.sendMessage("[管理AI] 遊んでくれてありがとうございます！1000EXPプレゼントです！");
+                } catch (PlayerDataNotFoundException ignored) {
+                }
+            }
+            tick = 1;
+        }
     }
 }
