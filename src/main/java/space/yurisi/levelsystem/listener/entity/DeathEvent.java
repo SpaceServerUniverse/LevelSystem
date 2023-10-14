@@ -18,7 +18,7 @@ public class DeathEvent implements Listener {
         }
 
         try {
-            api.addExp(killer, 50);
+            api.addExp(killer, 3);
         } catch (PlayerDataNotFoundException ignored) {
         }
     }

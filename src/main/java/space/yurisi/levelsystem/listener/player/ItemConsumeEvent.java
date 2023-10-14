@@ -15,7 +15,7 @@ public class ItemConsumeEvent implements Listener {
         LevelSystemAPI api = LevelSystemAPI.getInstance();
 
         try {
-            api.addExp(player, 5);
+            api.addExp(player, 3);
         }catch (PlayerDataNotFoundException ignored){
         }
     }
